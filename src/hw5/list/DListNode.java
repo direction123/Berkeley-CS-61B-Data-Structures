@@ -103,6 +103,7 @@ public class DListNode extends ListNode {
         newNode.next = this.next;
         this.next.prev = newNode;
         this.next = newNode;
+        myList.size++;
     }
 
     /**
@@ -128,6 +129,7 @@ public class DListNode extends ListNode {
         newNode.prev = this.next;
         this.prev.next = newNode;
         this.prev = newNode;
+        myList.size++;
     }
 
     /**
@@ -148,12 +150,13 @@ public class DListNode extends ListNode {
         //   what DList it's in.
         this.prev.next = this.next;
         this.next.prev = this.prev;
+        myList.size--;
 
         // Make this node an invalid node, so it cannot be used to corrupt myList.
-        myList = null;
+        this.myList = null;
         // Set other references to null to improve garbage collection.
-        next = null;
-        prev = null;
+        this.next = null;
+        this.prev = null;
     }
 
 }

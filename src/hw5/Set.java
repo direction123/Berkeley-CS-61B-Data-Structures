@@ -18,7 +18,7 @@ public class Set {
      *      must always be sorted in ascending order.
      *  3)  No two elements in the List may be equal according to compareTo().
      **/
-    List setList;
+    private List setList;
 
     /**
      *  Constructs an empty Set.
@@ -58,6 +58,7 @@ public class Set {
         } else {
             ListNode node = setList.front();
             try {
+                // find the position that the node needs to insert
                 while (node.isValidNode() && c.compareTo(node.item()) > 0) {
                     node = node.next();
                 }
@@ -91,7 +92,35 @@ public class Set {
      **/
     public void union(Set s) {
         // Your solution here.
+        if (s == null || s.cardinality() == 0 || cardinality() == 0) {
+            return;
+        }
+        ListNode curNode = setList.front();
+        ListNode sNode = s.setList.front();
+        Comparable curItem, sItem;
+        try {
+            while (curNode.isValidNode() && sNode.isValidNode()) {
+                curItem = (Comparable) curNode.item();
+                sItem = (Comparable) sNode.item();
+                if (curItem.compareTo(sItem) == 0) {
+                    curNode = curNode.next();
+                    sNode = sNode.next();
+                } else if (curItem.compareTo(sItem) < 0) {
+                    curNode = curNode.next();
+                } else {
+                    curNode.insertBefore(sNode);
+                    sNode = sNode.next();
+                }
+            }
 
+            while (sNode.isValidNode()) {
+                sItem = (Comparable) sNode.item();
+                setList.insertBack(sItem);
+                sNode = sNode.next();
+            }
+        } catch (InvalidNodeException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -109,6 +138,35 @@ public class Set {
      **/
     public void intersect(Set s) {
         // Your solution here.
+        if (s == null || s.cardinality() == 0 || cardinality() == 0) {
+            return;
+        }
+        ListNode curNode = setList.front();
+        ListNode sNode = s.setList.front();
+        Comparable curItem, sItem;
+        try {
+            while (curNode.isValidNode() && sNode.isValidNode()) {
+                curItem = (Comparable)curNode.item();
+                sItem = (Comparable) sNode.item();
+                if (curItem.compareTo(sItem) == 0) {
+                    curNode = curNode.next();
+                    sNode = sNode.next();
+                } else if (curItem.compareTo(sItem) < 0) {
+                    sNode = sNode.next();
+                } else {
+                    ListNode nextNode = curNode.next();
+                    curNode.remove();
+                    curNode = nextNode;
+                }
+            }
+            while (curNode.isValidNode()) {
+                ListNode nextNode = curNode.next();
+                curNode.remove();
+                curNode = nextNode;
+            }
+        } catch (InvalidNodeException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -152,26 +210,30 @@ public class Set {
         s.insert(new Integer(4));
         s.insert(new Integer(3));
         System.out.println("Set s = " + s);
+        System.out.println("s.cardinality() = " + s.cardinality());
 
         Set s2 = new Set();
         s2.insert(new Integer(4));
         s2.insert(new Integer(5));
         s2.insert(new Integer(5));
         System.out.println("Set s2 = " + s2);
+        System.out.println("s2.cardinality() = " + s2.cardinality());
 
         Set s3 = new Set();
         s3.insert(new Integer(5));
         s3.insert(new Integer(3));
         s3.insert(new Integer(8));
         System.out.println("Set s3 = " + s3);
+        System.out.println("s3.cardinality() = " + s3.cardinality());
 
-     /*   s.union(s2);
+
+        s.union(s2);
         System.out.println("After s.union(s2), s = " + s);
+        System.out.println("s.cardinality() = " + s.cardinality());
 
         s.intersect(s3);
         System.out.println("After s.intersect(s3), s = " + s);
-
         System.out.println("s.cardinality() = " + s.cardinality());
-        // You may want to add more (ungraded) test code here. */
+        // You may want to add more (ungraded) test code here.
     }
 }
