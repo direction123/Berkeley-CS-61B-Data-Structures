@@ -10,7 +10,7 @@ public class DListNode extends ListNode {
 
     /**
      *  (inherited)  item references the item stored in the current node.
-     *  (inherited)  myList references the List that contains this node.
+     *  (inherited)  myList references the SList that contains this node.
      *  prev references the previous node in the DList.
      *  next references the next node in the DList.
      *

@@ -137,7 +137,7 @@ public class DList2 {
         System.out.println("### TESTING insertFront ###\nEmpty list is " + l);
 
         l.insertFront(9);
-        System.out.println("\nInserting 9 at front.\nList with 9 is " + l);
+        System.out.println("\nInserting 9 at front.\nSList with 9 is " + l);
         if (l.head.next.item != 9) {
             System.out.println("head.next.item is wrong.");
         }
@@ -155,7 +155,7 @@ public class DList2 {
         }
 
         l.insertFront(8);
-        System.out.println("\nInserting 8 at front.\nList with 8 and 9 is " + l);
+        System.out.println("\nInserting 8 at front.\nSList with 8 and 9 is " + l);
         if (l.head.next.item != 8) {
             System.out.println("head.next.item is wrong.");
         }
@@ -181,11 +181,11 @@ public class DList2 {
 
 
         l = new DList2(1, 2);
-        System.out.println("\n\n### TESTING removeFront ###\nList with 1 and 2 is "
+        System.out.println("\n\n### TESTING removeFront ###\nSList with 1 and 2 is "
                 + l);
 
         l.removeFront();
-        System.out.println("\nList with 2 is " + l);
+        System.out.println("\nSList with 2 is " + l);
         if (l.head.next.item != 2) {
             System.out.println("head.next.item is wrong.");
         }

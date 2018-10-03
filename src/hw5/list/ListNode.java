@@ -12,7 +12,7 @@ public abstract class ListNode {
 
     /**
      *  item references the item stored in the current node.
-     *  myList references the List that contains this node.
+     *  myList references the SList that contains this node.
      *
      *  DO NOT CHANGE THE FOLLOWING FIELD DECLARATIONS.
      */
@@ -99,7 +99,7 @@ public abstract class ListNode {
     public abstract void insertBefore(Object item) throws InvalidNodeException;
 
     /**
-     *  remove() removes this node from its List.  If this node is invalid,
+     *  remove() removes this node from its SList.  If this node is invalid,
      *  throws an exception.
      *
      *  @exception InvalidNodeException if this node is not valid.

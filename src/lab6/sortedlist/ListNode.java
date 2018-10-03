@@ -3,8 +3,8 @@
 package lab6.sortedlist;
 
 /**
- *  ListNode is a class used internally by the List class.  Each node in a
- *  List is represented as a ListNode, with an item and a reference to the
+ *  ListNode is a class used internally by the SList class.  Each node in a
+ *  SList is represented as a ListNode, with an item and a reference to the
  *  next node in the list.
  **/
 class ListNode {

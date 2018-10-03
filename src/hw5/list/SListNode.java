@@ -9,7 +9,7 @@ public class SListNode extends ListNode {
 
     /**
      *  (inherited)  item references the item stored in the current node.
-     *  (inherited)  myList references the List that contains this node.
+     *  (inherited)  myList references the SList that contains this node.
      *  next references the next node in the SList.
      *
      *  DO NOT CHANGE THE FOLLOWING FIELD DECLARATIONS.

@@ -13,10 +13,10 @@ public class Set {
 
     /**
      * Set ADT invariants:
-     *  1)  The Set's elements must be precisely the elements of the List.
-     *  2)  The List must always contain Comparable elements, and those elements
+     *  1)  The Set's elements must be precisely the elements of the SList.
+     *  2)  The SList must always contain Comparable elements, and those elements
      *      must always be sorted in ascending order.
-     *  3)  No two elements in the List may be equal according to compareTo().
+     *  3)  No two elements in the SList may be equal according to compareTo().
      **/
     private List setList;
 
